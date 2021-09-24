@@ -24,7 +24,6 @@ TRAIN:
   ignore_label: 255
   aux_weight: 0.4
   train_gpu: [0,1] # gpu id, change to [0,1,2,3,4,5,6,7] for 8-gpu
-  greedytrain_gpu: [2]
   workers: 8  # data loader workers
   batch_size: 16  # batch size for labeled data
   unlabelled_batch_size: 8  # batch size for unlabeled data

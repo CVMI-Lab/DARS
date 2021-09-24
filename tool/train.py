@@ -97,6 +97,8 @@ def check(args):
                         args.mask_h <= 2 * ((args.train_h - 1) // (8 * args.shrink_factor) + 1) - 1)
                 assert (args.mask_w % 2 == 1) and (args.mask_w >= 3) and (
                         args.mask_w <= 2 * ((args.train_h - 1) // (8 * args.shrink_factor) + 1) - 1)
+    elif args.arch == 'deeplabv2':
+        pass
     else:
         raise Exception('architecture not supported yet'.format(args.arch))
 
@@ -181,6 +183,15 @@ def main_worker(gpu, ngpus_per_node, argss):
                        BatchNorm=BatchNorm)
         modules_ori = [model.layer0, model.layer1, model.layer2, model.layer3, model.layer4]
         modules_new = [model.psa, model.cls, model.aux]
+
+    elif args.arch == 'deeplabv2':
+        from model.deeplabv2 import Resnet101_deeplab
+        print("args.pretrain data=" + args.pretrain_data)
+        # import ipdb; ipdb.set_trace(context=20)
+        model = Resnet101_deeplab(num_classes=args.classes, criterion=criterion, pretrained=True,
+                                  pretrain_data=args.pretrain_data)
+        modules_ori = model.pretrained_layers()
+        modules_new = model.new_layers()
 
     params_list = []
     for module in modules_ori:
@@ -284,6 +295,9 @@ def main_worker(gpu, ngpus_per_node, argss):
             if args.arch == 'psp':
                 model_val = PSPNet(layers=args.layers, classes=args.classes, zoom_factor=args.zoom_factor,
                                    pretrained=False)
+            elif args.arch == 'deeplabv2':
+                model_val = Resnet101_deeplab(num_classes=args.classes, criterion=criterion, pretrained=True,
+                                              pretrain_data=args.pretrain_data)
 
     # ----- init save best ckpt vars
     best_val_miou = args.evaluate_previous_best_val_mIou

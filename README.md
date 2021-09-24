@@ -2,7 +2,7 @@
 
 Code release for the paper "Re-distributing Biased Pseudo Labels for Semi-supervised Semantic Segmentation: A Baseline Investigation", ICCV 2021 (oral).
 
-![framework](/Users/admin/Documents/lab/HKU/notes/README.assets/framework.png)
+![framework](README.assets/framework.png)
 
 **Authors**: Ruifei He\*,  Jihan Yang\*,  Xiaojuan Qi (\*equal contribution)
 
@@ -55,10 +55,12 @@ pip install opencv-python==4.4.0.46 tensorboardX pyyaml
 
 For PSPNet50, we follow [PyTorch Semantic Segmentation](https://github.com/hszhao/semseg) and use Imagenet pre-trained weights, which could be found [here](https://drive.google.com/drive/folders/1Hrz1wOxOZm4nIIS7UMJeL79AQrdvpj6v). 
 
+For Deeplabv2, we follow the exact same settings in [semis-semseg](https://github.com/sud0301/semisup-semseg), [AdvSemiSeg](https://github.com/hfslyc/AdvSemiSeg) and use [Imagenet pre-trained weights](https://download.pytorch.org/models/resnet101-5d3b4d8f.pth).
+
 ```
 mkdir initmodel  
 # Put the initialization weights under this folder. 
-# You can check model/pspnet.py.
+# You can check model/pspnet.py or model/deeplabv2.py.
 ```
 
 
@@ -93,11 +95,13 @@ You should also put the lists under `dataset/voc2012/list/`.
 
 The config files are located within `config` folder.
 
- For PSPNet50, crop size 713 requires at least 4*16G GPUs or 8\*10G GPUs, and crop size 361 requires at least 1\*16G GPU or 2\*10G GPUs. 
+For PSPNet50, crop size 713 requires at least 4*16G GPUs or 8\*10G GPUs, and crop size 361 requires at least 1\*16G GPU or 2\*10G GPUs. 
+
+For Deeplabv2, crop size 361 requires at least 1\*16G GPU or 2\*10G GPUs.
 
 The generation of pseudo labels would require 200G usage of disk space, reducing to only 600M after they are generated.
 
-All training scripts for pspnet50 are in the `tool/scripts` folder. For example, to train PSPNet50 for the Cityscapes 1/8 split setting with crop size 713x713, use the following command:
+All training scripts for pspnet50 and deeplabv2 are in the `tool/scripts` folder. For example, to train PSPNet50 for the Cityscapes 1/8 split setting with crop size 713x713, use the following command:
 
 ```
 sh tool/scripts/train_psp50_cityscapes_split8_crop713.sh
@@ -113,21 +117,15 @@ We also thank the open-source code from [semis-semseg](https://github.com/sud030
 
 
 
-## ToDo
-
-- [ ] Add support for deeplabv2. Coming soon.
-
-
-
 ## Citation
 
 If you find this project useful in your research, please consider cite:
 
 ```
-@article{he2021re,
+@inproceedings{he2021re,
   title={Re-distributing Biased Pseudo Labels for Semi-supervised Semantic Segmentation: A Baseline Investigation},
   author={He, Ruifei and Yang, Jihan and Qi, Xiaojuan},
-  journal={arXiv preprint arXiv:2107.11279},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision (ICCV)},
   year={2021}
 }
 ```
