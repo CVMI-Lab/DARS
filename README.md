@@ -95,9 +95,13 @@ You should also put the lists under `dataset/voc2012/list/`.
 
 The config files are located within `config` folder.
 
+<<<<<<< HEAD
 For PSPNet50, crop size 713 requires at least 4*16G GPUs or 8\*10G GPUs, and crop size 361 requires at least 1\*16G GPU or 2\*10G GPUs. 
 
 For Deeplabv2, crop size 361 requires at least 1\*16G GPU or 2\*10G GPUs.
+=======
+ For PSPNet50, crop size 713 requires at least 4*16G GPUs or 8\*10G GPUs, and crop size 361 requires at least 1\*16G GPU or 2\*10G GPUs. Please adjust the GPU settings in the config files ('train_gpu' and 'test_gpu') according to your machine setup.
+>>>>>>> 43075ce5fd3c1c92d4b285112b2e49884638d96a
 
 The generation of pseudo labels would require 200G usage of disk space, reducing to only 600M after they are generated.
 
