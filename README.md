@@ -55,7 +55,7 @@ pip install opencv-python==4.4.0.46 tensorboardX pyyaml
 
 For PSPNet50, we follow [PyTorch Semantic Segmentation](https://github.com/hszhao/semseg) and use Imagenet pre-trained weights, which could be found [here](https://drive.google.com/drive/folders/1Hrz1wOxOZm4nIIS7UMJeL79AQrdvpj6v). 
 
-For Deeplabv2, we follow the exact same settings in [semis-semseg](https://github.com/sud0301/semisup-semseg), [AdvSemiSeg](https://github.com/hfslyc/AdvSemiSeg) and use [Imagenet pre-trained weights](https://download.pytorch.org/models/resnet101-5d3b4d8f.pth).
+For Deeplabv2, we follow the exact same settings in [semisup-semseg](https://github.com/sud0301/semisup-semseg), [AdvSemiSeg](https://github.com/hfslyc/AdvSemiSeg) and use [Imagenet pre-trained weights](https://download.pytorch.org/models/resnet101-5d3b4d8f.pth).
 
 ```
 mkdir initmodel  
