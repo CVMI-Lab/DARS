@@ -115,7 +115,7 @@ sh tool/scripts/train_psp50_cityscapes_split8_crop713.sh
 
 Our code is largely based on [PyTorch Semantic Segmentation](https://github.com/hszhao/semseg), and we thank the authors for their wonderful implementation.
 
-We also thank the open-source code from [semis-semseg](https://github.com/sud0301/semisup-semseg), [AdvSemiSeg](https://github.com/hfslyc/AdvSemiSeg), [DST-CBC](https://github.com/voldemortX/DST-CBC/).
+We also thank the open-source code from [semisup-semseg](https://github.com/sud0301/semisup-semseg), [AdvSemiSeg](https://github.com/hfslyc/AdvSemiSeg), [DST-CBC](https://github.com/voldemortX/DST-CBC/).
 
 
 
