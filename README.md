@@ -124,13 +124,12 @@ We also thank the open-source code from [semisup-semseg](https://github.com/sud0
 If you find this project useful in your research, please consider cite:
 
 ```
-@InProceedings{He_2021_ICCV,
-    author    = {He, Ruifei and Yang, Jihan and Qi, Xiaojuan},
-    title     = {Re-Distributing Biased Pseudo Labels for Semi-Supervised Semantic Segmentation: A Baseline Investigation},
-    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-    month     = {October},
-    year      = {2021},
-    pages     = {6930-6940}
+@inproceedings{he2021re,
+  title={Re-distributing Biased Pseudo Labels for Semi-supervised Semantic Segmentation: A Baseline Investigation},
+  author={He, Ruifei and Yang, Jihan and Qi, Xiaojuan},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={6930--6940},
+  year={2021}
 }
 ```
 
